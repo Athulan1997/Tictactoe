@@ -1,73 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './index.css'; // Import the default CSS file for global styles
+import App from './App'; // Import the main App component
 
-class Square extends React.Component {
-constructor(props) {
-    super(props);
-    this.state = {
-        val: props.value
-    };
-}
-
-    render() { 
-      return (
-        <button className="square" onClick={() => this.setState({val:'X'})}>
-          {this.state.val}
-        </button>
-      );
-    }
-  }
-  
-  class Board extends React.Component {
-    renderSquare(i) {
-      return <Square value={i} />;
-    }
-  
-    render() {
-      const status = 'Next player: X';
-  
-      return (
-        <div>
-          <div className="status">{status}</div>
-          <div className="board-row">
-            {this.renderSquare(0)}
-            {this.renderSquare(1)}
-            {this.renderSquare(2)}
-          </div>
-          <div className="board-row">
-            {this.renderSquare(3)}
-            {this.renderSquare(4)}
-            {this.renderSquare(5)}
-          </div>
-          <div className="board-row">
-            {this.renderSquare(6)}
-            {this.renderSquare(7)}
-            {this.renderSquare(8)}
-          </div>
-        </div>
-      );
-    }
-  }
-  
-  class Game extends React.Component {
-    render() {
-      return (
-        <div className="game">
-          <div className="game-board">
-            <Board />
-          </div>
-          <div className="game-info">
-            <div>{"status"}</div>
-            <ol>{/* TODO */}</ol>
-          </div>
-        </div>
-      );
-    }
-  }
-  
-  // ========================================
-  
-  const root = ReactDOM.createRoot(document.getElementById("root"));
-  root.render(<Game />);
-  
+const root = ReactDOM.createRoot(document.getElementById('root')); // Create a root element
+root.render(
+  <React.StrictMode>
+    <App /> {/* Render the main App component */}
+  </React.StrictMode>
+);
